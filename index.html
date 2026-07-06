@@ -1,0 +1,1660 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IELTS Listening — Volume 3, Test 3</title>
+    <style>
+      :root {
+        --navy: #1f3a5f;
+        --navy-light: #2a5080;
+        --stamp: #a8431e;
+        --stamp-soft: #c77b57;
+        --paper: #f5f1e6;
+        --card: #fffdf7;
+        --ink: #1b2430;
+        --ink-soft: #5b6472;
+        --rule: #d8cfb8;
+        --ok: #2e6e4e;
+        --bad: #a8431e;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--paper);
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        font-size: 14px;
+        line-height: 1.6;
+        padding-bottom: 80px;
+      }
+
+      /* ===== STICKY HEADER ===== */
+      header.top {
+        background: var(--navy);
+        color: var(--card);
+        padding: 14px 5vw 10px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      header.top .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      header.top h1 {
+        font-family: Georgia, serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+      header.top .sub {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--stamp-soft);
+        margin-top: 1px;
+      }
+      .clock {
+        font-family: "Courier New", monospace;
+        font-size: 1.3rem;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 4px 14px;
+        border-radius: 3px;
+        letter-spacing: 1px;
+      }
+      .clock.warn {
+        color: #f0a070;
+        border-color: #f0a070;
+      }
+
+      /* ===== AUDIO BAR ===== */
+      .audio-bar {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-size: 0.78rem;
+      }
+      .audio-bar audio {
+        height: 32px;
+        max-width: 300px;
+        flex: 1;
+        min-width: 140px;
+      }
+      .speed-group {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+      }
+      .speed-group button {
+        padding: 2px 6px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--card);
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 9px;
+        font-weight: 600;
+        font-family: inherit;
+      }
+      .speed-group button.active {
+        background: var(--stamp);
+        border-color: var(--stamp);
+      }
+      .play-once {
+        font-size: 9px;
+        color: var(--stamp-soft);
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 2px 8px;
+        border-radius: 3px;
+      }
+
+      /* ===== SECTION NAV ===== */
+      nav.sections {
+        display: flex;
+        gap: 0;
+        background: var(--card);
+        border-bottom: 2px solid var(--navy);
+        position: sticky;
+        top: 82px;
+        z-index: 90;
+        overflow-x: auto;
+      }
+      nav.sections button {
+        flex: 1;
+        min-width: 100px;
+        padding: 10px 8px;
+        background: transparent;
+        border: none;
+        border-right: 1px solid var(--rule);
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        font-weight: 700;
+        transition: all 0.2s;
+      }
+      nav.sections button:hover {
+        background: rgba(31, 58, 95, 0.05);
+      }
+      nav.sections button.active {
+        background: var(--navy);
+        color: var(--card);
+      }
+      nav.sections button .n {
+        color: var(--stamp);
+        margin-right: 4px;
+      }
+      nav.sections button.active .n {
+        color: var(--stamp-soft);
+      }
+
+      /* ===== MAIN ===== */
+      main {
+        max-width: 880px;
+        margin: 24px auto;
+        padding: 0 5vw;
+      }
+      .section {
+        display: none;
+      }
+      .section.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ===== SECTION HEADER ===== */
+      .sec-head {
+        border-bottom: 3px double var(--navy);
+        padding-bottom: 8px;
+        margin-bottom: 18px;
+      }
+      .sec-head .eyebrow {
+        font-family: Arial, sans-serif;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--stamp);
+        font-weight: 700;
+      }
+      .sec-head h2 {
+        margin: 2px 0 4px;
+        font-size: 1.3rem;
+        color: var(--navy);
+      }
+      .sec-head p.instr {
+        font-style: italic;
+        color: var(--ink-soft);
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      /* ===== CARD ===== */
+      .card {
+        background: var(--card);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        padding: 18px 22px;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+      }
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 1.05rem;
+        color: var(--navy);
+      }
+      .card h4 {
+        margin: 12px 0 6px;
+        font-size: 0.95rem;
+        color: var(--navy);
+      }
+
+      /* ===== CANDIDATE ROW ===== */
+      .candidate-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        margin-bottom: 16px;
+      }
+      .candidate-row .cfield {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .candidate-row .cfield input {
+        border: none;
+        border-bottom: 1px solid var(--ink);
+        background: transparent;
+        padding: 2px 4px;
+        width: 200px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+      }
+      .candidate-row .num-box {
+        border: 1px solid var(--ink);
+        padding: 6px 14px;
+        min-width: 100px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      /* ===== FORM TABLE (Section 1) ===== */
+      .form-box {
+        border: 1px solid var(--ink);
+      }
+      .form-box .form-title {
+        text-align: center;
+        padding: 12px 10px 10px;
+        border-bottom: 1px solid var(--ink);
+        background: #faf8f2;
+      }
+      .form-box .form-title .t1 {
+        font-weight: 700;
+        font-size: 16px;
+        display: block;
+      }
+      .form-box .form-title .t2 {
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        border-bottom: 1px solid #e0d8c4;
+        padding: 7px 14px;
+        align-items: center;
+        font-size: 14px;
+      }
+      .form-row:last-child {
+        border-bottom: none;
+      }
+      .form-row .flabel {
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .form-row .fval {
+        color: #333;
+      }
+      .form-row .fval.example {
+        color: #666;
+        font-style: italic;
+      }
+
+      .qnum {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--navy);
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        margin-right: 5px;
+        flex-shrink: 0;
+      }
+      .ans-input {
+        font-family: Georgia, serif;
+        font-size: 14px;
+        border: none;
+        border-bottom: 1.5px dotted #999;
+        background: transparent;
+        padding: 2px 4px;
+        min-width: 200px;
+        color: var(--navy);
+      }
+      .ans-input:focus {
+        outline: none;
+        border-bottom: 1.5px solid var(--stamp);
+        background: #fffef8;
+      }
+      .ans-input.wide {
+        min-width: 260px;
+      }
+      .ans-input.short {
+        min-width: 70px;
+      }
+
+      /* ===== TABLE GRID (Section 2) ===== */
+      table.grid {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+        margin-top: 4px;
+      }
+      table.grid th {
+        background: var(--navy);
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 8px 10px;
+        text-align: left;
+      }
+      table.grid td {
+        border: 1px solid #ccc4ae;
+        padding: 8px 10px;
+        vertical-align: top;
+      }
+      table.grid tr:nth-child(even) td {
+        background: #faf8f2;
+      }
+      table.grid .ans-input {
+        min-width: 100px;
+      }
+
+      /* ===== MCQ ===== */
+      .mcq {
+        margin: 12px 0 16px;
+      }
+      .mcq .q-text {
+        font-size: 14px;
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+      .mcq .q-text .qnum {
+        background: var(--stamp);
+      }
+      .mcq label {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 13.5px;
+        padding: 3px 0 3px 8px;
+        cursor: pointer;
+      }
+      .mcq label:hover {
+        background: #faf8f2;
+      }
+      .mcq input {
+        margin-top: 3px;
+      }
+      .mcq .letter {
+        font-weight: 700;
+        width: 14px;
+        display: inline-block;
+      }
+
+      /* ===== NOTES (Section 3) ===== */
+      .notes-box {
+        border: 1px solid var(--ink);
+        padding: 14px 18px;
+      }
+      .notes-box .box-title {
+        font-weight: 700;
+        font-size: 15px;
+        margin-bottom: 8px;
+        color: var(--navy);
+      }
+      .notes-box ul {
+        margin: 0 0 10px;
+        padding-left: 20px;
+      }
+      .notes-box li {
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+      .module-block {
+        margin-top: 14px;
+        padding-top: 10px;
+        border-top: 1px dashed var(--rule);
+      }
+      .module-block:first-child {
+        border-top: none;
+        margin-top: 0;
+      }
+      .module-row {
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        font-size: 14px;
+        margin-bottom: 5px;
+        align-items: flex-start;
+      }
+      .module-row .mlabel {
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .module-row ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .module-row li {
+        margin-bottom: 3px;
+      }
+
+      /* ===== MATCHING ===== */
+      .matching-wrap {
+        display: grid;
+        grid-template-columns: 1fr 180px;
+        gap: 20px;
+        align-items: start;
+        margin-top: 8px;
+      }
+      .match-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .match-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        border-bottom: 1px dotted #ddd;
+        padding-bottom: 6px;
+      }
+      .match-item select {
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        padding: 3px 6px;
+        border: 1px solid #999;
+        border-radius: 2px;
+        background: #fff;
+        color: var(--navy);
+        min-width: 50px;
+      }
+      .theorist-box {
+        border: 1px solid var(--ink);
+        padding: 12px 14px;
+        background: #faf8f2;
+      }
+      .theorist-box .tt {
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 8px;
+        border-bottom: 1px solid var(--ink);
+        padding-bottom: 5px;
+      }
+      .theorist-box .row {
+        display: flex;
+        gap: 8px;
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+      .theorist-box .letter {
+        font-weight: 700;
+      }
+
+      /* ===== FEEDBACK ===== */
+      .fb {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        margin-left: 6px;
+        font-weight: 600;
+      }
+      .fb.ok {
+        color: var(--ok);
+      }
+      .fb.bad {
+        color: var(--bad);
+      }
+
+      .ans-input.correct {
+        border-bottom-color: var(--ok);
+        border-bottom-style: solid;
+        background: rgba(46, 110, 78, 0.06);
+      }
+      .ans-input.incorrect {
+        border-bottom-color: var(--bad);
+        border-bottom-style: solid;
+        background: rgba(168, 67, 30, 0.06);
+      }
+      select.correct {
+        border-color: var(--ok) !important;
+        background: rgba(46, 110, 78, 0.08) !important;
+      }
+      select.incorrect {
+        border-color: var(--bad) !important;
+        background: rgba(168, 67, 30, 0.08) !important;
+      }
+
+      /* ===== SCORE BANNER ===== */
+      .score-banner {
+        background: var(--card);
+        border: 2px solid var(--navy);
+        padding: 20px 24px;
+        margin-bottom: 20px;
+        text-align: center;
+        display: none;
+      }
+      .score-banner.show {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+      .score-banner .big {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--navy);
+        font-family: Arial, sans-serif;
+      }
+      .score-banner .band {
+        color: var(--stamp);
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      /* ===== FOOTER ACTIONS ===== */
+      .footer-actions {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        padding: 12px 5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.2);
+        z-index: 60;
+      }
+      .footer-actions .prevnext {
+        display: flex;
+        gap: 8px;
+      }
+      button.nav-btn {
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        padding: 8px 16px;
+        border-radius: 3px;
+        border: 1px solid var(--card);
+        background: transparent;
+        color: var(--card);
+        cursor: pointer;
+        font-weight: 700;
+      }
+      button.nav-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      button.submit-btn {
+        background: var(--stamp);
+        border: none;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        font-weight: 700;
+        padding: 10px 22px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      button.submit-btn:hover {
+        background: var(--stamp-soft);
+      }
+      button.reset-btn {
+        background: transparent;
+        border: 1px solid var(--card);
+        color: var(--card);
+        font-family: Arial, sans-serif;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        font-weight: 700;
+        padding: 8px 16px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      button.reset-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      hr.dashed {
+        border: none;
+        border-top: 1px dashed var(--rule);
+        margin: 12px 0;
+      }
+
+      @media (max-width: 640px) {
+        header.top h1 {
+          font-size: 1rem;
+        }
+        nav.sections {
+          top: 78px;
+        }
+        nav.sections button {
+          font-size: 0.65rem;
+          min-width: 70px;
+          padding: 8px 4px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .module-row {
+          grid-template-columns: 1fr;
+        }
+        .matching-wrap {
+          grid-template-columns: 1fr;
+        }
+        .candidate-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .candidate-row .cfield input {
+          width: 100%;
+        }
+        .ans-input {
+          min-width: 120px;
+        }
+        .card {
+          padding: 14px 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <div class="row">
+        <div>
+          <h1>IELTS Listening — Mock Test</h1>
+          <div class="sub">Volume 3 · Test 3 · 40 Questions</div>
+        </div>
+        <div class="clock" id="clock">30:00</div>
+      </div>
+      <div class="audio-bar">
+        <audio id="player" controls src="test3.m4a">
+          <source src="test3.m4a" type="audio/mp4" />
+        </audio>
+        <div class="speed-group">
+          <button data-speed="0.75">0.75×</button>
+          <button data-speed="1" class="active">1×</button>
+          <button data-speed="1.25">1.25×</button>
+          <button data-speed="1.5">1.5×</button>
+        </div>
+        <span class="play-once">🔒 Played once only</span>
+      </div>
+    </header>
+
+    <nav class="sections" id="sectionNav">
+      <button class="active" data-target="s1">
+        <span class="n">1</span> Section 1
+      </button>
+      <button data-target="s2"><span class="n">2</span> Section 2</button>
+      <button data-target="s3"><span class="n">3</span> Section 3</button>
+      <button data-target="s4"><span class="n">4</span> Section 4</button>
+    </nav>
+
+    <main>
+      <div class="score-banner" id="scoreBanner">
+        <div class="big"><span id="scoreNum">0</span> / 40</div>
+        <div>
+          Estimated IELTS Band: <span class="band" id="scoreBand">—</span>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 1 ===== -->
+      <section class="section active" id="s1">
+        <div class="sec-head">
+          <div class="eyebrow">Section 1 · Questions 1–10</div>
+          <h2>Wildlife Conservation Society — Membership Application</h2>
+          <p class="instr">
+            Complete the form below. Write
+            <strong>NO MORE THAN THREE WORDS AND/OR A NUMBER</strong> for each
+            answer.
+          </p>
+        </div>
+
+        <div class="candidate-row">
+          <div class="cfield">
+            <strong>Candidate Name</strong>
+            <input type="text" placeholder="Your name" />
+          </div>
+          <div class="num-box">Candidate Number</div>
+        </div>
+
+        <div class="card">
+          <div class="form-box">
+            <div class="form-title">
+              <span class="t1">Wildlife Conservation Society</span>
+              <span class="t2">Application for membership</span>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Example</div>
+              <div class="fval"></div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Caller's name:</div>
+              <div class="fval example">Michael Jones</div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Heard of WCS from:</div>
+              <div class="fval">
+                <span class="qnum">1</span
+                ><input
+                  class="ans-input"
+                  id="q1"
+                  data-answer="radio programme"
+                  placeholder="answer"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Address:</div>
+              <div class="fval example">21 Beale Street, Leeds</div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Postcode:</div>
+              <div class="fval">
+                <span class="qnum">2</span
+                ><input
+                  class="ans-input"
+                  id="q2"
+                  data-answer="LS14 2JW"
+                  placeholder="answer"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Phone number:</div>
+              <div class="fval example">01173 58642</div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Email address:</div>
+              <div class="fval">
+                <span class="qnum">3</span> mj@<input
+                  class="ans-input"
+                  id="q3"
+                  data-answer="hennings.co.uk"
+                  style="min-width: 160px"
+                  placeholder="answer"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Length of membership:</div>
+              <div class="fval">
+                <span class="qnum">4</span
+                ><input
+                  class="ans-input short"
+                  id="q4"
+                  data-answer="2"
+                  placeholder="—"
+                />
+                years
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Type of membership:</div>
+              <div class="fval">
+                <span class="qnum">5</span
+                ><input
+                  class="ans-input"
+                  id="q5"
+                  data-answer="joint"
+                  placeholder="answer"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Fee:</div>
+              <div class="fval">
+                <span class="qnum">6</span> £<input
+                  class="ans-input short"
+                  id="q6"
+                  data-answer="49"
+                  placeholder="—"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Payment details:</div>
+              <div class="fval example">direct debit</div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Name of bank:</div>
+              <div class="fval">
+                <span class="qnum">7</span
+                ><input
+                  class="ans-input"
+                  id="q7"
+                  data-answer="Union Bank"
+                  placeholder="answer"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Account name:</div>
+              <div class="fval example">Michael Jones</div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Account number:</div>
+              <div class="fval example">01059612</div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Date of first payment:</div>
+              <div class="fval">
+                <span class="qnum">8</span
+                ><input
+                  class="ans-input"
+                  id="q8"
+                  data-answer="15th October"
+                  placeholder="answer"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Reference number:</div>
+              <div class="fval">
+                <span class="qnum">9</span
+                ><input
+                  class="ans-input"
+                  id="q9"
+                  data-answer="JYZ37"
+                  placeholder="answer"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="flabel">Other requests:</div>
+              <div class="fval">
+                <div style="margin-bottom: 4px">— extra information pack</div>
+                <div>
+                  <span class="qnum">10</span
+                  ><input
+                    class="ans-input"
+                    id="q10"
+                    data-answer="a video"
+                    placeholder="answer"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 2 ===== -->
+      <section class="section" id="s2">
+        <div class="sec-head">
+          <div class="eyebrow">Section 2 · Questions 11–20</div>
+          <h2>Spring Festival, Yorktown</h2>
+          <p class="instr">
+            Questions 11–18: Complete the notes below. Write
+            <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each
+            answer.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Spring Festival — Programme</h3>
+          <table class="grid">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Location</th>
+                <th>Date and Time</th>
+                <th>Other Information</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Firework display</td>
+                <td>
+                  Near the <span class="qnum">11</span
+                  ><input
+                    class="ans-input"
+                    id="q11"
+                    data-answer="lake"
+                    style="min-width: 90px"
+                  />
+                </td>
+                <td>4 September<br />9 p.m.</td>
+                <td>
+                  Pack a <span class="qnum">12</span
+                  ><input
+                    class="ans-input"
+                    id="q12"
+                    data-answer="picnic"
+                    style="min-width: 90px"
+                  />
+                  and blanket
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Display of <span class="qnum">13</span
+                  ><input
+                    class="ans-input"
+                    id="q13"
+                    data-answer="flowers"
+                    style="min-width: 90px"
+                  />
+                </td>
+                <td>Central Park</td>
+                <td>daily</td>
+                <td>
+                  Buses run from the town centre every
+                  <span class="qnum">14</span
+                  ><input class="ans-input short" id="q14" data-answer="20" />
+                  minutes
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  The <span class="qnum">15</span
+                  ><input
+                    class="ans-input"
+                    id="q15"
+                    data-answer="motor show"
+                    style="min-width: 100px"
+                  />
+                  Show
+                </td>
+                <td>Exhibition Centre</td>
+                <td>10–15 September<br />9 a.m. – 10 p.m.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>'Grow Your Imagination'</td>
+                <td>
+                  in the <span class="qnum">16</span
+                  ><input
+                    class="ans-input"
+                    id="q16"
+                    data-answer="Art Gallery"
+                    style="min-width: 100px"
+                  />
+                </td>
+                <td>11–19 September</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>'Swing in Spring'</td>
+                <td>
+                  in the <span class="qnum">17</span
+                  ><input
+                    class="ans-input"
+                    id="q17"
+                    data-answer="concert hall"
+                    style="min-width: 100px"
+                  />
+                </td>
+                <td>17 & 18 September</td>
+                <td>
+                  Saturday matinee performance at <span class="qnum">18</span
+                  ><input class="ans-input short" id="q18" data-answer="2.30" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Questions 19–20</h3>
+          <p class="instr" style="margin-bottom: 10px">
+            Choose the correct letter, <strong>A</strong>, <strong>B</strong> or
+            <strong>C</strong>.
+          </p>
+
+          <div class="mcq">
+            <div class="q-text">
+              <span class="qnum">19</span> In the Spring Festival competition,
+              you can win
+            </div>
+            <label
+              ><input type="radio" name="q19" value="A" />
+              <span class="letter">A</span> a family pass to 'Balloons Down
+              Under'</label
+            >
+            <label
+              ><input type="radio" name="q19" value="B" />
+              <span class="letter">B</span> a cheque for $200</label
+            >
+            <label
+              ><input type="radio" name="q19" value="C" />
+              <span class="letter">C</span> a flight in a hot air balloon</label
+            >
+          </div>
+
+          <div class="mcq">
+            <div class="q-text">
+              <span class="qnum">20</span> You can get an entry form for the
+              competition from
+            </div>
+            <label
+              ><input type="radio" name="q20" value="A" />
+              <span class="letter">A</span> the radio station</label
+            >
+            <label
+              ><input type="radio" name="q20" value="B" />
+              <span class="letter">B</span> the newspaper</label
+            >
+            <label
+              ><input type="radio" name="q20" value="C" />
+              <span class="letter">C</span> the Festival's website</label
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 3 ===== -->
+      <section class="section" id="s3">
+        <div class="sec-head">
+          <div class="eyebrow">Section 3 · Questions 21–30</div>
+          <h2>Archaeology Course — Tutor Discussion</h2>
+          <p class="instr">
+            Complete the notes below. Write
+            <strong>NO MORE THAN THREE WORDS</strong> for each answer.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="notes-box">
+            <div class="box-title">Archaeology Course</div>
+            <ul>
+              <li>
+                Can be combined with any other subject except
+                <span class="qnum">21</span
+                ><input
+                  class="ans-input wide"
+                  id="q21"
+                  data-answer="classical history"
+                />
+              </li>
+              <li>
+                Has three <span class="qnum">22</span
+                ><input
+                  class="ans-input"
+                  id="q22"
+                  data-answer="compulsory"
+                  style="min-width: 120px"
+                />
+                modules in first semester
+              </li>
+            </ul>
+
+            <div class="module-block">
+              <div style="font-weight: 700; margin-bottom: 6px">Module 1</div>
+              <div class="module-row">
+                <div class="mlabel">Title:</div>
+                <div>
+                  <span class="qnum">23</span
+                  ><input
+                    class="ans-input"
+                    id="q23"
+                    data-answer="Object Matters"
+                    style="min-width: 160px"
+                  />
+                </div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Lecturer:</div>
+                <div>Dr Morris</div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Learning method:</div>
+                <div>Lectures and practical sessions</div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Content:</div>
+                <div>
+                  Based on processes
+                  <ul>
+                    <li>recording</li>
+                    <li>
+                      <span class="qnum">24</span
+                      ><input
+                        class="ans-input"
+                        id="q24"
+                        data-answer="classification"
+                        style="min-width: 140px"
+                      />
+                    </li>
+                    <li>interpretation</li>
+                    <li>display</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Assessment:</div>
+                <div>
+                  By <span class="qnum">25</span
+                  ><input
+                    class="ans-input"
+                    id="q25"
+                    data-answer="coursework"
+                    style="min-width: 140px"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="module-block">
+              <div style="font-weight: 700; margin-bottom: 6px">Module 2</div>
+              <div class="module-row">
+                <div class="mlabel">Title:</div>
+                <div>
+                  <span class="qnum">26</span
+                  ><input
+                    class="ans-input"
+                    id="q26"
+                    data-answer="Towns and Cities"
+                    style="min-width: 160px"
+                  />
+                </div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Lecturer:</div>
+                <div>Prof. Elliot</div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Content:</div>
+                <div>
+                  <span class="qnum">27</span
+                  ><input
+                    class="ans-input"
+                    id="q27"
+                    data-answer="origins"
+                    style="min-width: 120px"
+                  />
+                  and development of built environments
+                </div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Assessment:</div>
+                <div>
+                  By <span class="qnum">28</span
+                  ><input class="ans-input short" id="q28" data-answer="oral" />
+                  examination
+                </div>
+              </div>
+            </div>
+
+            <div class="module-block">
+              <div style="font-weight: 700; margin-bottom: 6px">Module 3</div>
+              <div class="module-row">
+                <div class="mlabel">Title:</div>
+                <div>Method and Science</div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Lecturer:</div>
+                <div>Dr Thompson</div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Content:</div>
+                <div>Standard techniques in fieldwork and analysis</div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Learning method:</div>
+                <div>
+                  50% lab work, 50% <span class="qnum">29</span
+                  ><input
+                    class="ans-input"
+                    id="q29"
+                    data-answer="seminars"
+                    style="min-width: 120px"
+                  />
+                </div>
+              </div>
+              <div class="module-row">
+                <div class="mlabel">Site survey:</div>
+                <div>
+                  at end of module (the <span class="qnum">30</span
+                  ><input
+                    class="ans-input"
+                    id="q30"
+                    data-answer="location"
+                    style="min-width: 120px"
+                  />
+                  is to be announced later)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 4 ===== -->
+      <section class="section" id="s4">
+        <div class="sec-head">
+          <div class="eyebrow">Section 4 · Questions 31–40</div>
+          <h2>Digital Natives and Digital Immigrants</h2>
+          <p class="instr">
+            Questions 31–33: Choose the correct letter, <strong>A</strong>,
+            <strong>B</strong> or <strong>C</strong>.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="mcq">
+            <div class="q-text">
+              <span class="qnum">31</span> What impact does Marc Prensky believe
+              that digital technology has had on young people?
+            </div>
+            <label
+              ><input type="radio" name="q31" value="A" />
+              <span class="letter">A</span> It has altered their thinking
+              patterns.</label
+            >
+            <label
+              ><input type="radio" name="q31" value="B" />
+              <span class="letter">B</span> It has harmed their physical
+              development.</label
+            >
+            <label
+              ><input type="radio" name="q31" value="C" />
+              <span class="letter">C</span> It has limited their brain
+              capacity.</label
+            >
+          </div>
+
+          <div class="mcq">
+            <div class="q-text">
+              <span class="qnum">32</span> 'Digital immigrants' tend to access
+              computers
+            </div>
+            <label
+              ><input type="radio" name="q32" value="A" />
+              <span class="letter">A</span> using their native language.</label
+            >
+            <label
+              ><input type="radio" name="q32" value="B" />
+              <span class="letter">B</span> less efficiently than young
+              people.</label
+            >
+            <label
+              ><input type="radio" name="q32" value="C" />
+              <span class="letter">C</span> for less important
+              information.</label
+            >
+          </div>
+
+          <div class="mcq">
+            <div class="q-text">
+              <span class="qnum">33</span> What example is given of having a
+              'digital accent'?
+            </div>
+            <label
+              ><input type="radio" name="q33" value="A" />
+              <span class="letter">A</span> having less effective typing
+              skills</label
+            >
+            <label
+              ><input type="radio" name="q33" value="B" />
+              <span class="letter">B</span> doing things the old-fashioned
+              way</label
+            >
+            <label
+              ><input type="radio" name="q33" value="C" />
+              <span class="letter">C</span> being unable to understand
+              instructions</label
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Questions 34–40</h3>
+          <p class="instr" style="margin-bottom: 10px">
+            Which theorist makes each of the following points? Write the correct
+            letter, <strong>A</strong>, <strong>B</strong> or
+            <strong>C</strong>, next to questions 34–40.
+          </p>
+
+          <div class="matching-wrap">
+            <div class="match-list">
+              <div class="match-item">
+                <span
+                  ><span class="qnum">34</span> Current teaching methods don't
+                  work.</span
+                >
+                <select id="q34" data-answer="B">
+                  <option value="">—</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+              <div class="match-item">
+                <span
+                  ><span class="qnum">35</span> Many students don't understand
+                  computers.</span
+                >
+                <select id="q35" data-answer="C">
+                  <option value="">—</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+              <div class="match-item">
+                <span
+                  ><span class="qnum">36</span> Computer technology doesn't
+                  interest all students.</span
+                >
+                <select id="q36" data-answer="A">
+                  <option value="">—</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+              <div class="match-item">
+                <span
+                  ><span class="qnum">37</span> Students can still learn the
+                  traditional way.</span
+                >
+                <select id="q37" data-answer="B">
+                  <option value="">—</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+              <div class="match-item">
+                <span
+                  ><span class="qnum">38</span> Students still need to learn
+                  research skills.</span
+                >
+                <select id="q38" data-answer="A">
+                  <option value="">—</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+              <div class="match-item">
+                <span
+                  ><span class="qnum">39</span> We should use computer games to
+                  teach.</span
+                >
+                <select id="q39" data-answer="B">
+                  <option value="">—</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+              <div class="match-item">
+                <span
+                  ><span class="qnum">40</span> Computers can't replace
+                  educators.</span
+                >
+                <select id="q40" data-answer="C">
+                  <option value="">—</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+            </div>
+            <div class="theorist-box">
+              <div class="tt">Theorists</div>
+              <div class="row"><span class="letter">A</span> Allen</div>
+              <div class="row"><span class="letter">B</span> James</div>
+              <div class="row"><span class="letter">C</span> Vander</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer-actions">
+      <div class="prevnext">
+        <button class="nav-btn" id="prevBtn">◂ Previous</button>
+        <button class="nav-btn" id="nextBtn">Next ▸</button>
+      </div>
+      <div style="display: flex; gap: 8px">
+        <button class="reset-btn" onclick="resetAll()">🗑 Clear</button>
+        <button class="submit-btn" id="submitBtn">✅ Check answers</button>
+      </div>
+    </div>
+
+    <script>
+      // ===== SECTION NAVIGATION =====
+      const sections = ["s1", "s2", "s3", "s4"];
+      let current = 0;
+      const navBtns = document.querySelectorAll("#sectionNav button");
+
+      function showSection(i) {
+        current = Math.max(0, Math.min(sections.length - 1, i));
+        sections.forEach((id, idx) => {
+          document
+            .getElementById(id)
+            .classList.toggle("active", idx === current);
+        });
+        navBtns.forEach((b, idx) =>
+          b.classList.toggle("active", idx === current),
+        );
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      navBtns.forEach((b, idx) =>
+        b.addEventListener("click", () => showSection(idx)),
+      );
+      document
+        .getElementById("prevBtn")
+        .addEventListener("click", () => showSection(current - 1));
+      document
+        .getElementById("nextBtn")
+        .addEventListener("click", () => showSection(current + 1));
+
+      // ===== SPEED CONTROL =====
+      (function () {
+        const player = document.getElementById("player");
+        const btns = document.querySelectorAll(".speed-group button");
+        btns.forEach((b) => {
+          b.addEventListener("click", function () {
+            btns.forEach((x) => x.classList.remove("active"));
+            this.classList.add("active");
+            player.playbackRate = parseFloat(this.dataset.speed);
+          });
+        });
+      })();
+
+      // ===== PLAY ONCE =====
+      (function () {
+        const player = document.getElementById("player");
+        let hasStarted = false,
+          lastTime = 0;
+        player.addEventListener("play", () => {
+          if (!hasStarted) hasStarted = true;
+        });
+        player.addEventListener("timeupdate", function () {
+          if (this.currentTime < lastTime - 0.5) this.currentTime = lastTime;
+          else lastTime = this.currentTime;
+        });
+        player.addEventListener("seeking", function () {
+          if (this.currentTime < lastTime - 0.5) this.currentTime = lastTime;
+        });
+      })();
+
+      // ===== TIMER =====
+      const clockEl = document.getElementById("clock");
+      let totalSeconds = 30 * 60;
+      let timerStarted = false;
+      let timerInterval = null;
+
+      function startTimer() {
+        if (timerStarted) return;
+        timerStarted = true;
+        timerInterval = setInterval(() => {
+          totalSeconds--;
+          if (totalSeconds <= 0) {
+            clearInterval(timerInterval);
+            totalSeconds = 0;
+          }
+          const m = Math.floor(totalSeconds / 60)
+            .toString()
+            .padStart(2, "0");
+          const s = (totalSeconds % 60).toString().padStart(2, "0");
+          clockEl.textContent = m + ":" + s;
+          clockEl.classList.toggle("warn", totalSeconds <= 300);
+        }, 1000);
+      }
+      document.getElementById("player").addEventListener("play", startTimer);
+
+      // ===== ANSWER KEY =====
+      const textAnswers = {
+        1: ["a radio program", "radio program", "radio programme"],
+        2: ["ls142jw", "ls14 2jw"],
+        3: ["hennings.co.uk"],
+        4: ["2", "two"],
+        5: ["joint"],
+        6: ["49"],
+        7: ["the union bank", "union bank"],
+        8: ["15 october", "15th october", "october 15"],
+        9: ["jyz37", "jy z37", "j y z 3 7"],
+        10: ["video", "a video"],
+        11: ["lake"],
+        12: ["picnic", "a picnic"],
+        13: ["flowers"],
+        14: ["20"],
+        15: ["motor", "motor show", "the motor show"],
+        16: ["art gallery", "the art gallery"],
+        17: ["concert hall", "the concert hall"],
+        18: ["2.30", "2:30", "230", "2.30pm", "2.30 pm"],
+        21: ["classical history"],
+        22: ["compulsory"],
+        23: ["object matters"],
+        24: ["classification"],
+        25: ["coursework"],
+        26: ["towns and cities"],
+        27: ["the origins", "origins"],
+        28: ["oral"],
+        29: ["seminars"],
+        30: ["location"],
+      };
+      const mcAnswers = { 19: "C", 20: "B", 31: "A", 32: "B", 33: "B" };
+      const selectAnswers = {
+        34: "B",
+        35: "C",
+        36: "A",
+        37: "B",
+        38: "A",
+        39: "B",
+        40: "C",
+      };
+
+      function normalize(v) {
+        return (v || "")
+          .toString()
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, " ")
+          .replace(/[.,]/g, "");
+      }
+
+      function getBand(score) {
+        if (score >= 39) return "9.0 — Expert user ⭐";
+        if (score >= 37) return "8.5 — Very good user ⭐";
+        if (score >= 35) return "8.0 — Very good user";
+        if (score >= 32) return "7.5 — Good user";
+        if (score >= 30) return "7.0 — Good user";
+        if (score >= 26) return "6.5 — Competent user";
+        if (score >= 23) return "6.0 — Competent user";
+        if (score >= 18) return "5.5 — Modest user";
+        if (score >= 16) return "5.0 — Modest user";
+        return "4.5 or below";
+      }
+
+      document
+        .getElementById("submitBtn")
+        .addEventListener("click", function () {
+          let score = 0;
+          const total = 40;
+
+          // Text inputs
+          Object.keys(textAnswers).forEach((q) => {
+            const el = document.getElementById("q" + q);
+            if (!el) return;
+            const val = normalize(el.value);
+            const accepted = textAnswers[q].map(normalize);
+            const isCorrect = accepted.includes(val) && val.length > 0;
+            el.classList.remove("correct", "incorrect");
+            el.classList.add(isCorrect ? "correct" : "incorrect");
+            if (isCorrect) score++;
+          });
+
+          // Radio buttons (MCQ)
+          Object.keys(mcAnswers).forEach((q) => {
+            const chosen = document.querySelector(
+              'input[name="q' + q + '"]:checked',
+            );
+            const isCorrect = chosen && chosen.value === mcAnswers[q];
+            // Visual feedback: highlight parent
+            const parent = document.querySelector(
+              '.mcq:has(input[name="q' + q + '"])',
+            );
+            if (parent) {
+              parent.style.borderLeft = isCorrect
+                ? "3px solid var(--ok)"
+                : "3px solid var(--bad)";
+              parent.style.paddingLeft = "8px";
+            }
+            if (isCorrect) score++;
+          });
+
+          // Select dropdowns
+          Object.keys(selectAnswers).forEach((q) => {
+            const el = document.getElementById("q" + q);
+            if (!el) return;
+            const isCorrect = el.value === selectAnswers[q];
+            el.classList.remove("correct", "incorrect");
+            el.classList.add(isCorrect ? "correct" : "incorrect");
+            if (isCorrect) score++;
+          });
+
+          // Show score
+          document.getElementById("scoreNum").textContent = score;
+          document.getElementById("scoreBand").textContent = getBand(score);
+          const banner = document.getElementById("scoreBanner");
+          banner.classList.add("show");
+          banner.scrollIntoView({ behavior: "smooth" });
+        });
+
+      // ===== RESET =====
+      function resetAll() {
+        if (!confirm("Clear all answers?")) return;
+        document.querySelectorAll(".ans-input").forEach((el) => {
+          el.value = "";
+          el.classList.remove("correct", "incorrect");
+        });
+        document.querySelectorAll("select").forEach((el) => {
+          el.value = "";
+          el.classList.remove("correct", "incorrect");
+        });
+        document
+          .querySelectorAll('input[type="radio"]')
+          .forEach((el) => (el.checked = false));
+        document.querySelectorAll(".mcq").forEach((el) => {
+          el.style.borderLeft = "";
+          el.style.paddingLeft = "";
+        });
+        document.getElementById("scoreBanner").classList.remove("show");
+      }
+    </script>
+  </body>
+</html>

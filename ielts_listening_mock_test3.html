@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Listening — Mock Test (Volume 3, Test 3)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root{
+    --paper:#F5F1E6;
+    --paper-line:#D8CFB8;
+    --ink:#1B2430;
+    --ink-soft:#5B6472;
+    --navy:#1F3A5F;
+    --stamp:#A8431E;
+    --stamp-soft:#C77B57;
+    --ok:#2E6E4E;
+    --bad:#A8431E;
+    --card:#FFFDF7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      linear-gradient(var(--paper-line) 1px, transparent 1px);
+    background-size:100% 2.1em;
+    color:var(--ink);
+    font-family:'Iowan Old Style','Georgia',serif;
+    line-height:1.5;
+    padding-bottom:80px;
+  }
+  header.top{
+    background:var(--navy);
+    color:var(--paper);
+    padding:22px 5vw 18px;
+    background-image:none;
+    position:sticky; top:0; z-index:50;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);
+  }
+  header.top .row{
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:14px;
+  }
+  header.top h1{
+    font-family:'Iowan Old Style',Georgia,serif;
+    font-size:1.5rem; margin:0; letter-spacing:.5px; font-weight:600;
+  }
+  header.top .sub{
+    font-family:Arial,Helvetica,sans-serif; font-size:.72rem; letter-spacing:2px;
+    text-transform:uppercase; color:var(--stamp-soft); margin-top:2px;
+  }
+  .clock{
+    font-family:'Courier New',monospace; font-size:1.6rem; font-weight:700;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.25);
+    padding:6px 16px; border-radius:3px; letter-spacing:2px;
+  }
+  .clock.warn{color:var(--stamp-soft); border-color:var(--stamp-soft);}
+  .audio-bar{
+    margin-top:14px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    font-family:Arial,Helvetica,sans-serif; font-size:.85rem;
+  }
+  .audio-bar label.upload{
+    background:var(--stamp); color:#fff; padding:8px 16px; border-radius:3px;
+    cursor:pointer; font-size:.78rem; letter-spacing:.5px; text-transform:uppercase;
+    border:none; transition:background .15s;
+  }
+  .audio-bar label.upload:hover{background:var(--stamp-soft);}
+  .audio-bar input[type=file]{display:none;}
+  audio{height:34px; max-width:340px;}
+  .audio-status{color:var(--paper); opacity:.75;}
+
+  nav.sections{
+    display:flex; gap:0; background:var(--card); border-bottom:2px solid var(--navy);
+    position:sticky; top:96px; z-index:40; overflow-x:auto;
+  }
+  nav.sections button{
+    flex:1; min-width:140px; padding:12px 10px; background:transparent; border:none;
+    border-right:1px solid var(--paper-line); cursor:pointer;
+    font-family:Arial,Helvetica,sans-serif; font-size:.78rem; letter-spacing:1px;
+    text-transform:uppercase; color:var(--ink-soft); font-weight:700;
+  }
+  nav.sections button.active{background:var(--navy); color:var(--paper);}
+  nav.sections button .n{color:var(--stamp); margin-right:6px;}
+  nav.sections button.active .n{color:var(--stamp-soft);}
+
+  main{max-width:900px; margin:30px auto; padding:0 5vw;}
+  .section{display:none;}
+  .section.active{display:block; animation:fade .3s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  .section-head{border-bottom:3px double var(--navy); padding-bottom:10px; margin-bottom:22px;}
+  .section-head .eyebrow{
+    font-family:Arial,sans-serif; font-size:.72rem; text-transform:uppercase; letter-spacing:2px;
+    color:var(--stamp); font-weight:700;
+  }
+  .section-head h2{margin:2px 0 6px; font-size:1.6rem;}
+  .section-head p.instr{font-style:italic; color:var(--ink-soft); margin:0; font-size:.95rem;}
+
+  .card{background:var(--card); border:1px solid var(--paper-line); border-radius:4px; padding:20px 24px; margin-bottom:22px; box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .card h3{margin-top:0; font-size:1.1rem; color:var(--navy);}
+
+  .qrow{display:flex; align-items:baseline; gap:10px; margin:10px 0; flex-wrap:wrap;}
+  .qnum{
+    font-family:Arial,sans-serif; font-weight:700; color:#fff; background:var(--navy);
+    width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:.8rem; flex-shrink:0;
+  }
+  .qtext{flex:1; min-width:200px;}
+  input[type=text]{
+    border:none; border-bottom:2px dotted var(--ink-soft); background:transparent;
+    font-family:'Iowan Old Style',Georgia,serif; font-size:1rem; padding:3px 4px; width:220px;
+    color:var(--ink);
+  }
+  input[type=text]:focus{outline:none; border-bottom-color:var(--stamp); border-bottom-style:solid;}
+  input.correct{border-bottom-color:var(--ok); border-bottom-style:solid; background:rgba(46,110,78,.08);}
+  input.incorrect{border-bottom-color:var(--bad); border-bottom-style:solid; background:rgba(168,67,30,.08);}
+
+  .mc label{display:block; margin:6px 0 6px 36px; cursor:pointer;}
+  .mc label input{margin-right:8px;}
+
+  table.form-table{width:100%; border-collapse:collapse; margin-top:4px;}
+  table.form-table td{padding:9px 6px; border-bottom:1px solid var(--paper-line); vertical-align:baseline;}
+  table.form-table td.label{width:42%; font-weight:600; color:var(--navy);}
+
+  .answer-fb{font-family:Arial,sans-serif; font-size:.78rem; margin-left:6px;}
+  .answer-fb.ok{color:var(--ok);}
+  .answer-fb.bad{color:var(--bad);}
+
+  .matching-box{background:var(--paper); border:1px solid var(--navy); padding:12px 18px; margin:16px 0; display:inline-block;}
+  .matching-box h4{margin:0 0 8px; font-size:.85rem; text-transform:uppercase; letter-spacing:1px; color:var(--navy);}
+
+  .footer-actions{
+    position:fixed; bottom:0; left:0; right:0; background:var(--navy); padding:14px 5vw;
+    display:flex; justify-content:space-between; align-items:center; box-shadow:0 -4px 14px rgba(0,0,0,.2);
+    z-index:60;
+  }
+  .footer-actions .prevnext{display:flex; gap:10px;}
+  button.nav-btn{
+    font-family:Arial,sans-serif; text-transform:uppercase; font-size:.75rem; letter-spacing:1px;
+    padding:10px 18px; border-radius:3px; border:1px solid var(--paper); background:transparent; color:var(--paper);
+    cursor:pointer; font-weight:700;
+  }
+  button.nav-btn:hover{background:rgba(255,255,255,.1);}
+  button.submit-btn{
+    background:var(--stamp); border:none; color:#fff; font-family:Arial,sans-serif;
+    text-transform:uppercase; font-size:.8rem; letter-spacing:1px; font-weight:700;
+    padding:12px 26px; border-radius:3px; cursor:pointer;
+  }
+  button.submit-btn:hover{background:var(--stamp-soft);}
+
+  .score-banner{
+    background:var(--card); border:2px solid var(--navy); padding:22px 26px; margin-bottom:24px; text-align:center;
+    display:none;
+  }
+  .score-banner.show{display:block;}
+  .score-banner .big{font-size:2.4rem; font-weight:700; color:var(--navy); font-family:Arial,sans-serif;}
+  .score-banner .band{color:var(--stamp); font-weight:700;}
+
+  @media (max-width:640px){
+    header.top .row{flex-direction:column; align-items:flex-start;}
+    nav.sections{top:132px;}
+    input[type=text]{width:150px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="row">
+    <div>
+      <h1>IELTS Listening — Mock Test</h1>
+      <div class="sub">Volume 3 · Test 3 · 40 Questions</div>
+    </div>
+    <div class="clock" id="clock">30:00</div>
+  </div>
+  <div class="audio-bar">
+    <label class="upload" for="audioFile">Load your audio file</label>
+    <input type="file" id="audioFile" accept="audio/*">
+    <audio id="player" controls></audio>
+    <span class="audio-status" id="audioStatus">No audio loaded yet — choose your test3 file.</span>
+  </div>
+</header>
+
+<nav class="sections" id="sectionNav">
+  <button class="active" data-target="s1"><span class="n">1</span>Section 1</button>
+  <button data-target="s2"><span class="n">2</span>Section 2</button>
+  <button data-target="s3"><span class="n">3</span>Section 3</button>
+  <button data-target="s4"><span class="n">4</span>Section 4</button>
+</nav>
+
+<main>
+
+<div class="score-banner" id="scoreBanner">
+  <div class="big" id="scoreBig">0 / 40</div>
+  <div>Estimated band: <span class="band" id="scoreBand">—</span></div>
+</div>
+
+<!-- SECTION 1 -->
+<section class="section active" id="s1">
+  <div class="section-head">
+    <div class="eyebrow">Section 1 · Questions 1–10</div>
+    <h2>Wildlife Conservation Society — Membership Application</h2>
+    <p class="instr">Complete the form below. Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer.</p>
+  </div>
+
+  <div class="card">
+    <h3>Wildlife Conservation Society — Application for Membership</h3>
+    <table class="form-table">
+      <tr><td class="label">Example — Caller's name:</td><td>Michael Jones</td></tr>
+      <tr><td class="label">Heard of WCS from:</td><td><span class="qnum">1</span> <input type="text" id="q1"> <span class="answer-fb" id="fb1"></span></td></tr>
+      <tr><td class="label">Address:</td><td>21 Beale Street, Leeds</td></tr>
+      <tr><td class="label">Postcode:</td><td><span class="qnum">2</span> <input type="text" id="q2"> <span class="answer-fb" id="fb2"></span></td></tr>
+      <tr><td class="label">Phone number:</td><td>01173 58642</td></tr>
+      <tr><td class="label">Email address:</td><td><span class="qnum">3</span> mj@ <input type="text" id="q3"> <span class="answer-fb" id="fb3"></span></td></tr>
+      <tr><td class="label">Length of membership:</td><td><span class="qnum">4</span> <input type="text" id="q4"> years <span class="answer-fb" id="fb4"></span></td></tr>
+      <tr><td class="label">Type of membership:</td><td><span class="qnum">5</span> <input type="text" id="q5"> <span class="answer-fb" id="fb5"></span></td></tr>
+      <tr><td class="label">Fee:</td><td><span class="qnum">6</span> £ <input type="text" id="q6"> <span class="answer-fb" id="fb6"></span></td></tr>
+      <tr><td class="label">Payment details:</td><td>direct debit</td></tr>
+      <tr><td class="label">Name of bank:</td><td><span class="qnum">7</span> <input type="text" id="q7"> <span class="answer-fb" id="fb7"></span></td></tr>
+      <tr><td class="label">Account name / number:</td><td>Michael Jones / 01059612</td></tr>
+      <tr><td class="label">Date of first payment:</td><td><span class="qnum">8</span> <input type="text" id="q8"> <span class="answer-fb" id="fb8"></span></td></tr>
+      <tr><td class="label">Reference number:</td><td><span class="qnum">9</span> <input type="text" id="q9"> <span class="answer-fb" id="fb9"></span></td></tr>
+      <tr><td class="label">Other requests:</td><td>- extra information pack<br><span class="qnum">10</span> <input type="text" id="q10"> <span class="answer-fb" id="fb10"></span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section" id="s2">
+  <div class="section-head">
+    <div class="eyebrow">Section 2 · Questions 11–20</div>
+    <h2>Spring Festival, Yorktown</h2>
+    <p class="instr">Questions 11–18: Complete the notes below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.</p>
+  </div>
+
+  <div class="card">
+    <h3>Spring Festival — Programme</h3>
+    <table class="form-table">
+      <tr><td class="label">Firework display — location:</td><td>Near the <span class="qnum">11</span> <input type="text" id="q11"> <span class="answer-fb" id="fb11"></span></td></tr>
+      <tr><td class="label">Firework display — other info:</td><td>Pack a <span class="qnum">12</span> <input type="text" id="q12"> and blanket <span class="answer-fb" id="fb12"></span></td></tr>
+      <tr><td class="label">Central Park — display of:</td><td><span class="qnum">13</span> <input type="text" id="q13"> <span class="answer-fb" id="fb13"></span></td></tr>
+      <tr><td class="label">Central Park — buses every:</td><td><span class="qnum">14</span> <input type="text" id="q14"> minutes <span class="answer-fb" id="fb14"></span></td></tr>
+      <tr><td class="label">Exhibition Centre — the ___ Show:</td><td><span class="qnum">15</span> <input type="text" id="q15"> <span class="answer-fb" id="fb15"></span></td></tr>
+      <tr><td class="label">'Grow Your Imagination' — held in:</td><td>the <span class="qnum">16</span> <input type="text" id="q16"> <span class="answer-fb" id="fb16"></span></td></tr>
+      <tr><td class="label">'Swing in Spring' — held in:</td><td>the <span class="qnum">17</span> <input type="text" id="q17"> <span class="answer-fb" id="fb17"></span></td></tr>
+      <tr><td class="label">'Swing in Spring' — Sat matinee at:</td><td><span class="qnum">18</span> <input type="text" id="q18"> <span class="answer-fb" id="fb18"></span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Questions 19–20</h3>
+    <p class="instr">Choose the correct letter, A, B or C.</p>
+
+    <div class="qrow mc">
+      <span class="qnum">19</span>
+      <div class="qtext">
+        <div>In the Spring Festival competition, you can win</div>
+        <label><input type="radio" name="q19" value="A"> a family pass to 'Balloons Down Under'</label>
+        <label><input type="radio" name="q19" value="B"> a cheque for $200</label>
+        <label><input type="radio" name="q19" value="C"> a flight in a hot air balloon</label>
+        <span class="answer-fb" id="fb19"></span>
+      </div>
+    </div>
+
+    <div class="qrow mc">
+      <span class="qnum">20</span>
+      <div class="qtext">
+        <div>You can get an entry form for the competition from</div>
+        <label><input type="radio" name="q20" value="A"> the radio station</label>
+        <label><input type="radio" name="q20" value="B"> the newspaper</label>
+        <label><input type="radio" name="q20" value="C"> the Festival's website</label>
+        <span class="answer-fb" id="fb20"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section" id="s3">
+  <div class="section-head">
+    <div class="eyebrow">Section 3 · Questions 21–30</div>
+    <h2>Archaeology Course — Tutor Discussion</h2>
+    <p class="instr">Complete the notes below. Write NO MORE THAN THREE WORDS for each answer.</p>
+  </div>
+
+  <div class="card">
+    <h3>Archaeology Course</h3>
+    <div class="qrow"><span class="qnum">21</span><div class="qtext">Can be combined with any other subject except <input type="text" id="q21"> <span class="answer-fb" id="fb21"></span></div></div>
+    <div class="qrow"><span class="qnum">22</span><div class="qtext">Has three <input type="text" id="q22"> modules in first semester <span class="answer-fb" id="fb22"></span></div></div>
+
+    <h4>Module 1</h4>
+    <table class="form-table">
+      <tr><td class="label">Title:</td><td><span class="qnum">23</span> <input type="text" id="q23"> <span class="answer-fb" id="fb23"></span></td></tr>
+      <tr><td class="label">Lecturer:</td><td>Dr Morris</td></tr>
+      <tr><td class="label">Learning method:</td><td>Lectures and practical sessions</td></tr>
+      <tr><td class="label">Content:</td><td>recording, <span class="qnum">24</span> <input type="text" id="q24"> <span class="answer-fb" id="fb24"></span>, interpretation, display</td></tr>
+      <tr><td class="label">Assessment:</td><td>By <span class="qnum">25</span> <input type="text" id="q25"> <span class="answer-fb" id="fb25"></span></td></tr>
+    </table>
+
+    <h4>Module 2</h4>
+    <table class="form-table">
+      <tr><td class="label">Title:</td><td><span class="qnum">26</span> <input type="text" id="q26"> <span class="answer-fb" id="fb26"></span></td></tr>
+      <tr><td class="label">Lecturer:</td><td>Prof. Elliot</td></tr>
+      <tr><td class="label">Content:</td><td><span class="qnum">27</span> <input type="text" id="q27"> and development of built environments <span class="answer-fb" id="fb27"></span></td></tr>
+      <tr><td class="label">Assessment:</td><td>By <span class="qnum">28</span> <input type="text" id="q28"> examination <span class="answer-fb" id="fb28"></span></td></tr>
+    </table>
+
+    <h4>Module 3</h4>
+    <table class="form-table">
+      <tr><td class="label">Title:</td><td>Method and Science</td></tr>
+      <tr><td class="label">Lecturer:</td><td>Dr Thompson</td></tr>
+      <tr><td class="label">Content:</td><td>Standard techniques in fieldwork and analysis</td></tr>
+      <tr><td class="label">Learning method:</td><td>50% lab work, 50% <span class="qnum">29</span> <input type="text" id="q29"> <span class="answer-fb" id="fb29"></span></td></tr>
+      <tr><td class="label">Site survey:</td><td>at end of module (the <span class="qnum">30</span> <input type="text" id="q30"> <span class="answer-fb" id="fb30"></span> to be announced later)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section" id="s4">
+  <div class="section-head">
+    <div class="eyebrow">Section 4 · Questions 31–40</div>
+    <h2>Digital Natives and Digital Immigrants</h2>
+    <p class="instr">Questions 31–33: Choose the correct letter, A, B or C.</p>
+  </div>
+
+  <div class="card">
+    <div class="qrow mc">
+      <span class="qnum">31</span>
+      <div class="qtext">
+        <div>What impact does Marc Prensky believe that digital technology has had on young people?</div>
+        <label><input type="radio" name="q31" value="A"> It has altered their thinking patterns.</label>
+        <label><input type="radio" name="q31" value="B"> It has harmed their physical development.</label>
+        <label><input type="radio" name="q31" value="C"> It has limited their brain capacity.</label>
+        <span class="answer-fb" id="fb31"></span>
+      </div>
+    </div>
+
+    <div class="qrow mc">
+      <span class="qnum">32</span>
+      <div class="qtext">
+        <div>'Digital immigrants' tend to access computers</div>
+        <label><input type="radio" name="q32" value="A"> using their native language.</label>
+        <label><input type="radio" name="q32" value="B"> less efficiently than young people.</label>
+        <label><input type="radio" name="q32" value="C"> for less important information.</label>
+        <span class="answer-fb" id="fb32"></span>
+      </div>
+    </div>
+
+    <div class="qrow mc">
+      <span class="qnum">33</span>
+      <div class="qtext">
+        <div>What example is given of having a 'digital accent'?</div>
+        <label><input type="radio" name="q33" value="A"> having less effective typing skills</label>
+        <label><input type="radio" name="q33" value="B"> doing things the old-fashioned way</label>
+        <label><input type="radio" name="q33" value="C"> being unable to understand instructions</label>
+        <span class="answer-fb" id="fb33"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Questions 34–40</h3>
+    <p class="instr">Which theorist makes each of the following points? Write the correct letter, A, B or C.</p>
+
+    <div class="matching-box">
+      <h4>Theorists</h4>
+      A — Allen &nbsp;&nbsp; B — James &nbsp;&nbsp; C — Vander
+    </div>
+
+    <div class="qrow"><span class="qnum">34</span><div class="qtext">Current teaching methods don't work. <input type="text" id="q34" style="width:60px"> <span class="answer-fb" id="fb34"></span></div></div>
+    <div class="qrow"><span class="qnum">35</span><div class="qtext">Many students don't understand computers. <input type="text" id="q35" style="width:60px"> <span class="answer-fb" id="fb35"></span></div></div>
+    <div class="qrow"><span class="qnum">36</span><div class="qtext">Computer technology doesn't interest all students. <input type="text" id="q36" style="width:60px"> <span class="answer-fb" id="fb36"></span></div></div>
+    <div class="qrow"><span class="qnum">37</span><div class="qtext">Students can still learn the traditional way. <input type="text" id="q37" style="width:60px"> <span class="answer-fb" id="fb37"></span></div></div>
+    <div class="qrow"><span class="qnum">38</span><div class="qtext">Students still need to learn research skills. <input type="text" id="q38" style="width:60px"> <span class="answer-fb" id="fb38"></span></div></div>
+    <div class="qrow"><span class="qnum">39</span><div class="qtext">We should use computer games to teach. <input type="text" id="q39" style="width:60px"> <span class="answer-fb" id="fb39"></span></div></div>
+    <div class="qrow"><span class="qnum">40</span><div class="qtext">Computers can't replace educators. <input type="text" id="q40" style="width:60px"> <span class="answer-fb" id="fb40"></span></div></div>
+  </div>
+</section>
+
+</main>
+
+<div class="footer-actions">
+  <div class="prevnext">
+    <button class="nav-btn" id="prevBtn">◂ Previous</button>
+    <button class="nav-btn" id="nextBtn">Next ▸</button>
+  </div>
+  <button class="submit-btn" id="submitBtn">Check answers</button>
+</div>
+
+<script>
+// ---------- Section navigation ----------
+const sections = ['s1','s2','s3','s4'];
+let current = 0;
+const navBtns = document.querySelectorAll('#sectionNav button');
+
+function showSection(i){
+  current = Math.max(0, Math.min(sections.length-1, i));
+  sections.forEach((id,idx)=>{
+    document.getElementById(id).classList.toggle('active', idx===current);
+  });
+  navBtns.forEach((b,idx)=>b.classList.toggle('active', idx===current));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+navBtns.forEach((b,idx)=>b.addEventListener('click', ()=>showSection(idx)));
+document.getElementById('prevBtn').addEventListener('click', ()=>showSection(current-1));
+document.getElementById('nextBtn').addEventListener('click', ()=>showSection(current+1));
+
+// ---------- Audio upload ----------
+const audioInput = document.getElementById('audioFile');
+const player = document.getElementById('player');
+const audioStatus = document.getElementById('audioStatus');
+audioInput.addEventListener('change', (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const url = URL.createObjectURL(file);
+  player.src = url;
+  audioStatus.textContent = 'Loaded: ' + file.name;
+});
+
+// ---------- Timer (30 min listening + 10 min transfer) ----------
+const clockEl = document.getElementById('clock');
+let totalSeconds = 40*60;
+let timerStarted = false;
+let timerInterval = null;
+
+function startTimer(){
+  if(timerStarted) return;
+  timerStarted = true;
+  timerInterval = setInterval(()=>{
+    totalSeconds--;
+    if(totalSeconds<=0){
+      clearInterval(timerInterval);
+      totalSeconds = 0;
+    }
+    const m = Math.floor(totalSeconds/60).toString().padStart(2,'0');
+    const s = (totalSeconds%60).toString().padStart(2,'0');
+    clockEl.textContent = m+':'+s;
+    clockEl.classList.toggle('warn', totalSeconds<=300);
+  },1000);
+}
+player.addEventListener('play', startTimer);
+
+// ---------- Answer key ----------
+// text answers: array of accepted variants (lowercase, trimmed)
+const textAnswers = {
+  1: ['radio program','radio programme','a radio program','a radio programme'],
+  2: ['ls14 2jw','ls142jw'],
+  3: ['hennings.co.uk'],
+  4: ['2','two'],
+  5: ['joint'],
+  6: ['49'],
+  7: ['union bank','the union bank'],
+  8: ['15 october','15th october','october 15','the 15th'],
+  9: ['jyz37','jy z37','j y z 3 7'],
+  10: ['a video','video'],
+  11: ['lake'],
+  12: ['picnic','a picnic'],
+  13: ['flowers'],
+  14: ['20'],
+  15: ['motor','the motor'],
+  16: ['art gallery','the art gallery'],
+  17: ['concert hall','the concert hall'],
+  18: ['2.30','2:30','230','2.30pm','2.30 pm'],
+  21: ['classical history'],
+  22: ['compulsory'],
+  23: ['object matters'],
+  24: ['classification'],
+  25: ['coursework'],
+  26: ['towns and cities'],
+  27: ['origins'],
+  28: ['oral'],
+  29: ['seminars'],
+  30: ['location'],
+  34: ['b','james'],
+  35: ['c','vander'],
+  36: ['a','allen'],
+  37: ['b','james'],
+  38: ['a','allen'],
+  39: ['b','james'],
+  40: ['c','vander']
+};
+const mcAnswers = {19:'C', 20:'B', 31:'A', 32:'B', 33:'B'};
+
+function normalize(v){
+  return v.trim().toLowerCase().replace(/\s+/g,' ').replace(/[.,]/g,'');
+}
+
+document.getElementById('submitBtn').addEventListener('click', ()=>{
+  let score = 0;
+  const total = 40;
+
+  // text inputs
+  Object.keys(textAnswers).forEach(qnum=>{
+    const input = document.getElementById('q'+qnum);
+    const fb = document.getElementById('fb'+qnum);
+    if(!input) return;
+    const val = normalize(input.value || '');
+    const accepted = textAnswers[qnum].map(normalize);
+    const isCorrect = accepted.includes(val) && val.length>0;
+    input.classList.remove('correct','incorrect');
+    input.classList.add(isCorrect ? 'correct' : 'incorrect');
+    if(fb){
+      fb.textContent = isCorrect ? '✓' : ('✗ ('+textAnswers[qnum][0]+')');
+      fb.className = 'answer-fb ' + (isCorrect ? 'ok' : 'bad');
+    }
+    if(isCorrect) score++;
+  });
+
+  // multiple choice
+  Object.keys(mcAnswers).forEach(qnum=>{
+    const chosen = document.querySelector('input[name="q'+qnum+'"]:checked');
+    const fb = document.getElementById('fb'+qnum);
+    const correct = mcAnswers[qnum];
+    const isCorrect = chosen && chosen.value === correct;
+    if(fb){
+      fb.textContent = isCorrect ? '✓' : ('✗ (correct: '+correct+')');
+      fb.className = 'answer-fb ' + (isCorrect ? 'ok' : 'bad');
+    }
+    if(isCorrect) score++;
+  });
+
+  document.getElementById('scoreBig').textContent = score + ' / ' + total;
+  let band = '4.0';
+  if(score>=39) band='9.0';
+  else if(score>=37) band='8.5';
+  else if(score>=35) band='8.0';
+  else if(score>=32) band='7.5';
+  else if(score>=30) band='7.0';
+  else if(score>=26) band='6.5';
+  else if(score>=23) band='6.0';
+  else if(score>=18) band='5.5';
+  else if(score>=16) band='5.0';
+  else if(score>=13) band='4.5';
+  document.getElementById('scoreBand').textContent = band;
+  document.getElementById('scoreBanner').classList.add('show');
+  document.getElementById('scoreBanner').scrollIntoView({behavior:'smooth'});
+});
+</script>
+
+</body>
+</html>

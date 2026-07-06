@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IELTS Listening — Volume 3, Test 3 (Mock)</title>
+    <style>
+      :root {
+        --paper: #fdfcf9;
+        --ink: #1c1c1c;
+        --rule: #c9c2b3;
+        --accent: #8a6d3b;
+        --accent-soft: #f1e9d8;
+        --ok: #2e7d32;
+        --bad: #b3261e;
+        --field: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #e8e4da;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        padding: 24px 12px 80px;
+      }
+      .sheet {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+        padding: 36px 44px 50px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 3px double var(--ink);
+        padding-bottom: 14px;
+        margin-bottom: 18px;
+      }
+      .header h1 {
+        font-size: 22px;
+        letter-spacing: 0.5px;
+        margin: 0;
+      }
+      .header .meta {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        text-align: right;
+        color: #555;
+      }
+      .candidate-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        margin-bottom: 22px;
+      }
+      .candidate-row input {
+        font-family: Arial, sans-serif;
+        border: none;
+        border-bottom: 1px solid var(--ink);
+        background: transparent;
+        padding: 2px 4px;
+        width: 220px;
+      }
+      .candidate-row .num-box {
+        border: 1px solid var(--ink);
+        padding: 8px 14px;
+        min-width: 120px;
+        text-align: center;
+      }
+
+      .audio-panel {
+        background: var(--accent-soft);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        padding: 16px 18px;
+        margin-bottom: 26px;
+        font-family: Arial, sans-serif;
+      }
+      .audio-panel .label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .audio-panel audio {
+        width: 100%;
+      }
+      .audio-panel .note {
+        font-size: 12px;
+        color: #666;
+        margin-top: 8px;
+      }
+      .timer-row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 10px;
+        font-size: 12px;
+      }
+      .timer-row button {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        padding: 5px 10px;
+        border: 1px solid var(--accent);
+        background: #fff;
+        color: var(--accent);
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .timer-row button:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .instructions {
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        line-height: 1.6;
+        background: #faf8f2;
+        border: 1px solid var(--rule);
+        padding: 14px 18px;
+        margin-bottom: 30px;
+      }
+      .instructions p {
+        margin: 6px 0;
+      }
+      .instructions strong {
+        color: var(--ink);
+      }
+
+      .section {
+        margin-bottom: 42px;
+      }
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 6px;
+        margin-bottom: 6px;
+      }
+      .section-title h2 {
+        font-size: 18px;
+        margin: 0;
+        letter-spacing: 0.5px;
+      }
+      .section-title .qrange {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .section-instructions {
+        font-style: italic;
+        font-size: 14px;
+        margin: 10px 0 16px;
+      }
+      .subhead {
+        font-style: italic;
+        font-size: 14px;
+        margin: 18px 0 8px;
+      }
+
+      /* Form box - Section 1 */
+      .form-box {
+        border: 1px solid var(--ink);
+        padding: 0;
+      }
+      .form-box .form-title {
+        text-align: center;
+        padding: 14px 10px 12px;
+        border-bottom: 1px solid var(--ink);
+      }
+      .form-box .form-title .t1 {
+        font-weight: bold;
+        font-size: 17px;
+        display: block;
+      }
+      .form-box .form-title .t2 {
+        font-weight: bold;
+        font-size: 17px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 210px 1fr;
+        border-bottom: 1px solid #ddd6c4;
+        padding: 9px 16px;
+        align-items: center;
+        font-size: 14.5px;
+      }
+      .form-row:last-child {
+        border-bottom: none;
+      }
+      .form-row .flabel {
+        font-weight: bold;
+      }
+      .form-row .fval {
+        color: #333;
+      }
+      .form-row .fval.example {
+        color: #555;
+      }
+      .qnum {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--ink);
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 11px;
+        font-weight: bold;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 8px;
+        flex-shrink: 0;
+      }
+      .ans-input {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        border: none;
+        border-bottom: 1.5px dotted #999;
+        background: transparent;
+        padding: 3px 4px;
+        min-width: 220px;
+        color: #0b3d91;
+      }
+      .ans-input:focus {
+        outline: none;
+        border-bottom: 1.5px solid var(--accent);
+        background: #fffef8;
+      }
+      .other-requests-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      /* Table styling - Section 2 & general */
+      table.grid {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        margin-top: 6px;
+      }
+      table.grid th {
+        background: var(--ink);
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 12.5px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 9px 10px;
+        text-align: left;
+      }
+      table.grid td {
+        border: 1px solid #ccc4ae;
+        padding: 10px 12px;
+        vertical-align: top;
+      }
+      table.grid tr:nth-child(even) td {
+        background: #faf8f2;
+      }
+
+      /* MCQ styling */
+      .mcq {
+        margin: 16px 0 20px;
+      }
+      .mcq .q-text {
+        font-size: 14.5px;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+      .mcq .q-text .qnum {
+        background: var(--accent);
+      }
+      .options label {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 14px;
+        padding: 4px 0 4px 8px;
+        cursor: pointer;
+      }
+      .options input {
+        margin-top: 3px;
+      }
+      .options .letter {
+        font-weight: bold;
+        width: 16px;
+        display: inline-block;
+      }
+
+      /* Notes/course box style - Section 3 */
+      .notes-box {
+        border: 1px solid var(--ink);
+        padding: 16px 20px;
+      }
+      .notes-box .box-title {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .notes-box ul {
+        margin: 0 0 14px;
+        padding-left: 20px;
+      }
+      .notes-box li {
+        margin-bottom: 8px;
+        font-size: 14.5px;
+      }
+      .module-block {
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px dashed var(--rule);
+      }
+      .module-block:first-child {
+        border-top: none;
+        margin-top: 0;
+      }
+      .module-row {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        font-size: 14.5px;
+        margin-bottom: 6px;
+        align-items: flex-start;
+      }
+      .module-row .mlabel {
+        font-weight: bold;
+      }
+      .module-row ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .module-row li {
+        margin-bottom: 4px;
+      }
+
+      /* Matching - Section 4 last part */
+      .matching-wrap {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        gap: 24px;
+        align-items: start;
+        margin-top: 10px;
+      }
+      .match-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .match-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        font-size: 14.5px;
+        border-bottom: 1px dotted #ddd;
+        padding-bottom: 8px;
+      }
+      .match-item select {
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        padding: 4px 6px;
+        border: 1px solid #999;
+        border-radius: 3px;
+        background: #fff;
+        color: #0b3d91;
+      }
+      .theorist-box {
+        border: 1px solid var(--ink);
+        padding: 14px 16px;
+      }
+      .theorist-box .tt {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--ink);
+        padding-bottom: 6px;
+      }
+      .theorist-box div.row {
+        display: flex;
+        gap: 10px;
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .theorist-box .letter {
+        font-weight: bold;
+      }
+
+      /* Result panel */
+      .action-bar {
+        position: sticky;
+        bottom: 0;
+        background: var(--paper);
+        border-top: 2px solid var(--ink);
+        padding: 16px 0 4px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+      }
+      #checkBtn,
+      #resetBtn {
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        padding: 12px 26px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      #checkBtn {
+        background: var(--accent);
+        color: #fff;
+      }
+      #checkBtn:hover {
+        background: #6f5a2f;
+      }
+      #resetBtn {
+        background: #eee;
+        color: #333;
+        border: 1px solid #bbb;
+      }
+      #resetBtn:hover {
+        background: #ddd;
+      }
+
+      .result-mark {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+        margin-left: 10px;
+        padding: 2px 8px;
+        border-radius: 3px;
+        display: none;
+      }
+      .result-mark.show {
+        display: inline-block;
+      }
+      .result-mark.correct {
+        background: #e6f4e6;
+        color: var(--ok);
+      }
+      .result-mark.incorrect {
+        background: #fdecea;
+        color: var(--bad);
+      }
+      .correct-answer-note {
+        font-family: Arial, sans-serif;
+        font-size: 12.5px;
+        color: var(--ok);
+        display: none;
+        margin-left: 6px;
+      }
+      .correct-answer-note.show {
+        display: inline;
+      }
+
+      #scoreBanner {
+        display: none;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--ink);
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 14px;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin: -36px -44px 24px;
+      }
+      #scoreBanner.show {
+        display: block;
+      }
+
+      @media (max-width: 640px) {
+        .sheet {
+          padding: 20px 16px 40px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .module-row {
+          grid-template-columns: 1fr;
+        }
+        .matching-wrap {
+          grid-template-columns: 1fr;
+        }
+        #scoreBanner {
+          margin: -20px -16px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet">
+      <div id="scoreBanner"></div>
+
+      <div class="header">
+        <h1>Listening</h1>
+        <div class="meta">SATURDAY<br />Approximately 30 minutes</div>
+      </div>
+
+      <div class="candidate-row">
+        <div>Candidate Name <input type="text" placeholder="Your name" /></div>
+        <div class="num-box">Candidate Number</div>
+      </div>
+
+      <div class="audio-panel">
+        <div class="label">▶ Listening Audio — Test 3</div>
+        <audio
+          id="mainAudio"
+          controls
+          controlsList="noplaybackrate"
+          src="test3.m4a"
+        ></audio>
+        <div class="timer-row">
+          <button onclick="skip(-10)">⏪ -10s</button>
+          <button onclick="skip(10)">+10s ⏩</button>
+          <span id="timeDisplay">0:00 / 0:00</span>
+        </div>
+        <div class="note">
+          You will hear each part once only, exactly as in the real test. Write
+          your answers as you listen.
+        </div>
+      </div>
+
+      <div class="instructions">
+        <p>
+          <strong>Additional materials:</strong> Answer sheet for Listening and
+          Reading
+        </p>
+        <p>
+          <strong>Time:</strong> Approximately 30 minutes (plus 10 minutes'
+          transfer time)
+        </p>
+        <p>
+          <strong>INSTRUCTIONS TO CANDIDATES:</strong> Listen to the
+          instructions for each part of the question paper. Answer all the
+          questions. While you are listening, write your answers on the question
+          paper. You will have 10 minutes at the end of the test to copy your
+          answers onto the separate answer sheet.
+        </p>
+        <p>
+          <strong>INFORMATION FOR CANDIDATES:</strong> There are four parts to
+          the test. You will hear each part once only. There are 40 questions.
+          Each question carries one mark.
+        </p>
+      </div>
+
+      <!-- ============ SECTION 1 ============ -->
+      <div class="section" id="section1">
+        <div class="section-title">
+          <h2>SECTION 1</h2>
+          <span class="qrange">Question 1 – 10</span>
+        </div>
+        <p class="section-instructions">
+          Complete the form below.<br />Write
+          <strong>NO MORE THAN THREE WORDS AND/OR A NUMBER</strong> for each
+          answer.
+        </p>
+
+        <div class="form-box">
+          <div class="form-title">
+            <span class="t1">Wildlife Conservation Society</span>
+            <span class="t2">Application for membership</span>
+          </div>
+
+          <div class="form-row">
+            <div class="flabel">Example</div>
+            <div class="fval"></div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Caller's name:</div>
+            <div class="fval example">Michael Jones</div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Heard of WCS from:</div>
+            <div class="fval">
+              <span class="qnum">1</span
+              ><input class="ans-input" data-q="1" placeholder="answer" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Address:</div>
+            <div class="fval example">21 Beel Street, Leeds</div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Postcode:</div>
+            <div class="fval">
+              <span class="qnum">2</span
+              ><input class="ans-input" data-q="2" placeholder="answer" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Phone number:</div>
+            <div class="fval example">01173 58642</div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Email address:</div>
+            <div class="fval">
+              <span class="qnum">3</span> mj@<input
+                class="ans-input"
+                data-q="3"
+                placeholder="answer"
+                style="min-width: 160px"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Length of membership:</div>
+            <div class="fval">
+              <span class="qnum">4</span
+              ><input
+                class="ans-input"
+                data-q="4"
+                style="min-width: 80px"
+                placeholder="—"
+              />
+              Years
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Type of membership:</div>
+            <div class="fval">
+              <span class="qnum">5</span
+              ><input class="ans-input" data-q="5" placeholder="answer" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Fee:</div>
+            <div class="fval">
+              <span class="qnum">6</span> £<input
+                class="ans-input"
+                data-q="6"
+                style="min-width: 100px"
+                placeholder="—"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Payment details:</div>
+            <div class="fval example">direct debit</div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Name of bank:</div>
+            <div class="fval">
+              <span class="qnum">7</span
+              ><input class="ans-input" data-q="7" placeholder="answer" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Account name:</div>
+            <div class="fval example">Michael Jones</div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Account number:</div>
+            <div class="fval example">01059612</div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Date of first payment:</div>
+            <div class="fval">
+              <span class="qnum">8</span
+              ><input class="ans-input" data-q="8" placeholder="answer" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Reference number:</div>
+            <div class="fval">
+              <span class="qnum">9</span
+              ><input class="ans-input" data-q="9" placeholder="answer" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="flabel">Other requests:</div>
+            <div class="fval other-requests-list">
+              <div>- extra information pack</div>
+              <div>
+                <span class="qnum">10</span
+                ><input class="ans-input" data-q="10" placeholder="answer" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SECTION 2 ============ -->
+      <div class="section" id="section2">
+        <div class="section-title">
+          <h2>SECTION 2</h2>
+          <span class="qrange">Questions 11 – 20</span>
+        </div>
+
+        <p class="subhead">Question 11 – 18</p>
+        <p class="section-instructions">
+          Complete the notes below.<br />Write
+          <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> for each
+          answer.
+        </p>
+
+        <table class="grid">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Location</th>
+              <th>Date and Time</th>
+              <th>Other Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Firework display</td>
+              <td>
+                Near the <span class="qnum">11</span
+                ><input
+                  class="ans-input"
+                  data-q="11"
+                  style="min-width: 110px"
+                />
+              </td>
+              <td>4 September<br />9 p.m.</td>
+              <td>
+                Pack a <span class="qnum">12</span
+                ><input
+                  class="ans-input"
+                  data-q="12"
+                  style="min-width: 100px"
+                /><br />and blanket
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Display of <span class="qnum">13</span
+                ><input
+                  class="ans-input"
+                  data-q="13"
+                  style="min-width: 110px"
+                />
+              </td>
+              <td>Central Park</td>
+              <td>daily</td>
+              <td>
+                Buses run from the town centre every <span class="qnum">14</span
+                ><input class="ans-input" data-q="14" style="min-width: 70px" />
+                minutes
+              </td>
+            </tr>
+            <tr>
+              <td>
+                The <span class="qnum">15</span
+                ><input
+                  class="ans-input"
+                  data-q="15"
+                  style="min-width: 110px"
+                />
+                Show
+              </td>
+              <td>Exhibition Centre</td>
+              <td>10–15 September<br />9 a.m. – 10 p.m.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>'Grow Your Imagination'</td>
+              <td>
+                in the <span class="qnum">16</span
+                ><input
+                  class="ans-input"
+                  data-q="16"
+                  style="min-width: 110px"
+                />
+              </td>
+              <td>11 – 19 September</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>'Swing in Spring'</td>
+              <td>
+                in the <span class="qnum">17</span
+                ><input
+                  class="ans-input"
+                  data-q="17"
+                  style="min-width: 110px"
+                />
+              </td>
+              <td>17 & 18 September</td>
+              <td>
+                Saturday matinee performance at <span class="qnum">18</span
+                ><input class="ans-input" data-q="18" style="min-width: 70px" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="subhead" style="margin-top: 26px">Question 19 and 20</p>
+        <p class="section-instructions">
+          Choose the correct letter, <strong>A</strong>, <strong>B</strong> or
+          <strong>C</strong>.
+        </p>
+
+        <div class="mcq">
+          <div class="q-text">
+            <span class="qnum">19</span>In the Spring Festival competition, you
+            can win
+          </div>
+          <div class="options">
+            <label
+              ><input type="radio" name="q19" value="A" /><span class="letter"
+                >A</span
+              >
+              a family pass to 'Balloons Down Under'</label
+            >
+            <label
+              ><input type="radio" name="q19" value="B" /><span class="letter"
+                >B</span
+              >
+              a cheque for $200</label
+            >
+            <label
+              ><input type="radio" name="q19" value="C" /><span class="letter"
+                >C</span
+              >
+              a flight in a hot air balloon</label
+            >
+          </div>
+        </div>
+
+        <div class="mcq">
+          <div class="q-text">
+            <span class="qnum">20</span>You can get an entry form for the
+            competition from
+          </div>
+          <div class="options">
+            <label
+              ><input type="radio" name="q20" value="A" /><span class="letter"
+                >A</span
+              >
+              the radio station</label
+            >
+            <label
+              ><input type="radio" name="q20" value="B" /><span class="letter"
+                >B</span
+              >
+              the newspaper</label
+            >
+            <label
+              ><input type="radio" name="q20" value="C" /><span class="letter"
+                >C</span
+              >
+              the Festival's website</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SECTION 3 ============ -->
+      <div class="section" id="section3">
+        <div class="section-title">
+          <h2>SECTION 3</h2>
+          <span class="qrange">Questions 21 – 30</span>
+        </div>
+        <p class="section-instructions">
+          Complete the notes below.<br />Write
+          <strong>NO MORE THAN THREE WORDS</strong> for each answer.
+        </p>
+
+        <div class="notes-box">
+          <div class="box-title">Archaeology Course</div>
+          <ul>
+            <li>
+              Can be combined with any other subject except
+              <span class="qnum">21</span
+              ><input class="ans-input" data-q="21" style="min-width: 160px" />
+            </li>
+            <li>
+              Has three <span class="qnum">22</span
+              ><input class="ans-input" data-q="22" style="min-width: 130px" />
+              modules in first semester
+            </li>
+          </ul>
+
+          <div class="module-block">
+            <div style="font-weight: bold; margin-bottom: 8px">Module 1</div>
+            <div class="module-row">
+              <div class="mlabel">Title:</div>
+              <div>
+                <span class="qnum">23</span
+                ><input
+                  class="ans-input"
+                  data-q="23"
+                  style="min-width: 180px"
+                />
+              </div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Lecturer:</div>
+              <div>Dr Morris</div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Learning method:</div>
+              <div>Lectures and practical sessions</div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Content:</div>
+              <div>
+                Based on processes
+                <ul>
+                  <li>recording</li>
+                  <li>
+                    <span class="qnum">24</span
+                    ><input
+                      class="ans-input"
+                      data-q="24"
+                      style="min-width: 160px"
+                    />
+                  </li>
+                  <li>interpretation</li>
+                  <li>display</li>
+                </ul>
+              </div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Assessment:</div>
+              <div>
+                By <span class="qnum">25</span
+                ><input
+                  class="ans-input"
+                  data-q="25"
+                  style="min-width: 160px"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="module-block">
+            <div style="font-weight: bold; margin-bottom: 8px">Module 2</div>
+            <div class="module-row">
+              <div class="mlabel">Title:</div>
+              <div>
+                <span class="qnum">26</span
+                ><input
+                  class="ans-input"
+                  data-q="26"
+                  style="min-width: 180px"
+                />
+              </div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Lecturer:</div>
+              <div>Prof. Elliot</div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Content:</div>
+              <div>
+                <span class="qnum">27</span
+                ><input
+                  class="ans-input"
+                  data-q="27"
+                  style="min-width: 160px"
+                />
+                and development of built environments
+              </div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Assessment:</div>
+              <div>
+                By <span class="qnum">28</span
+                ><input
+                  class="ans-input"
+                  data-q="28"
+                  style="min-width: 160px"
+                />
+                examination
+              </div>
+            </div>
+          </div>
+
+          <div class="module-block">
+            <div style="font-weight: bold; margin-bottom: 8px">Module 3</div>
+            <div class="module-row">
+              <div class="mlabel">Title:</div>
+              <div>Method and Science</div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Lecturer:</div>
+              <div>Dr Thompson</div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Content:</div>
+              <div>Standard techniques in fieldwork and analysis</div>
+            </div>
+            <div class="module-row">
+              <div class="mlabel">Learning method:</div>
+              <div>
+                50% lab work, 50% <span class="qnum">29</span
+                ><input
+                  class="ans-input"
+                  data-q="29"
+                  style="min-width: 160px"
+                />
+              </div>
+            </div>
+            <div class="module-row" style="grid-template-columns: 1fr">
+              <div>
+                Site survey at end of module (the <span class="qnum">30</span
+                ><input
+                  class="ans-input"
+                  data-q="30"
+                  style="min-width: 160px"
+                />
+                is to be announced later)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SECTION 4 ============ -->
+      <div class="section" id="section4">
+        <div class="section-title">
+          <h2>SECTION 4</h2>
+          <span class="qrange">Questions 31 – 40</span>
+        </div>
+
+        <p class="subhead">Questions 31 – 33</p>
+        <p class="section-instructions">
+          Choose the correct letter, <strong>A</strong>, <strong>B</strong> or
+          <strong>C</strong>.
+        </p>
+
+        <div class="mcq">
+          <div class="q-text">
+            <span class="qnum">31</span>What impact does Marc Prensky believe
+            that digital technology has had on young people?
+          </div>
+          <div class="options">
+            <label
+              ><input type="radio" name="q31" value="A" /><span class="letter"
+                >A</span
+              >
+              It has altered their thinking patterns.</label
+            >
+            <label
+              ><input type="radio" name="q31" value="B" /><span class="letter"
+                >B</span
+              >
+              It has harmed their physical development.</label
+            >
+            <label
+              ><input type="radio" name="q31" value="C" /><span class="letter"
+                >C</span
+              >
+              It has limited their brain capacity.</label
+            >
+          </div>
+        </div>
+
+        <div class="mcq">
+          <div class="q-text">
+            <span class="qnum">32</span>'Digital immigrants' tend to access
+            computers
+          </div>
+          <div class="options">
+            <label
+              ><input type="radio" name="q32" value="A" /><span class="letter"
+                >A</span
+              >
+              using their native language.</label
+            >
+            <label
+              ><input type="radio" name="q32" value="B" /><span class="letter"
+                >B</span
+              >
+              less efficiently than young people.</label
+            >
+            <label
+              ><input type="radio" name="q32" value="C" /><span class="letter"
+                >C</span
+              >
+              for less important information.</label
+            >
+          </div>
+        </div>
+
+        <div class="mcq">
+          <div class="q-text">
+            <span class="qnum">33</span>What example is given of having a
+            'digital accent'?
+          </div>
+          <div class="options">
+            <label
+              ><input type="radio" name="q33" value="A" /><span class="letter"
+                >A</span
+              >
+              having less effective typing skills</label
+            >
+            <label
+              ><input type="radio" name="q33" value="B" /><span class="letter"
+                >B</span
+              >
+              doing things the old-fashioned way</label
+            >
+            <label
+              ><input type="radio" name="q33" value="C" /><span class="letter"
+                >C</span
+              >
+              being unable to understand instructions</label
+            >
+          </div>
+        </div>
+
+        <p class="subhead" style="margin-top: 26px">Questions 34 – 40</p>
+        <p class="section-instructions">
+          Which theorist makes each of the following points?<br />Write the
+          correct letter, <strong>A</strong>, <strong>B</strong> or
+          <strong>C</strong>, next to questions 34-40.
+        </p>
+
+        <div class="matching-wrap">
+          <div class="match-list">
+            <div class="match-item">
+              <span
+                ><span class="qnum">34</span>Current teaching methods don't
+                work.</span
+              >
+              <select data-q="34">
+                <option value="">–</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+            <div class="match-item">
+              <span
+                ><span class="qnum">35</span>Many students don't understand
+                computers.</span
+              >
+              <select data-q="35">
+                <option value="">–</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+            <div class="match-item">
+              <span
+                ><span class="qnum">36</span>Computer technology doesn't
+                interest all students.</span
+              >
+              <select data-q="36">
+                <option value="">–</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+            <div class="match-item">
+              <span
+                ><span class="qnum">37</span>Students can still learn the
+                traditional way.</span
+              >
+              <select data-q="37">
+                <option value="">–</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+            <div class="match-item">
+              <span
+                ><span class="qnum">38</span>Students still need to learn
+                research skills.</span
+              >
+              <select data-q="38">
+                <option value="">–</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+            <div class="match-item">
+              <span
+                ><span class="qnum">39</span>We should use computer games to
+                teach.</span
+              >
+              <select data-q="39">
+                <option value="">–</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+            <div class="match-item">
+              <span
+                ><span class="qnum">40</span>Computers can't replace
+                educators.</span
+              >
+              <select data-q="40">
+                <option value="">–</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+          </div>
+          <div class="theorist-box">
+            <div class="tt">Theorists</div>
+            <div class="row"><span class="letter">A</span> Allen</div>
+            <div class="row"><span class="letter">B</span> James</div>
+            <div class="row"><span class="letter">C</span> Vander</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-bar">
+        <button id="checkBtn" onclick="checkAnswers()">
+          Javoblarni tekshirish
+        </button>
+        <button id="resetBtn" onclick="resetAll()">Tozalash</button>
+      </div>
+    </div>
+
+    <script>
+      const answerKey = {
+        1: ["radio program", "radio programme"],
+        2: ["ls142jw", "ls14 2jw"],
+        3: ["hennings.co.uk"],
+        4: ["2"],
+        5: ["joint"],
+        6: ["49"],
+        7: ["union bank", "union"],
+        8: ["15th october", "15 october", "october 15", "the 15th"],
+        9: ["jyz37", "jy z37", "j y zed 37"],
+        10: ["a video", "video"],
+        11: ["lake"],
+        12: ["picnic"],
+        13: ["flowers"],
+        14: ["20"],
+        15: ["motor show", "motor"],
+        16: ["art gallery"],
+        17: ["concert hall"],
+        18: ["2.30", "230", "2:30"],
+        21: ["classical history"],
+        22: ["compulsory"],
+        23: ["object matters"],
+        24: ["classification"],
+        25: ["coursework"],
+        26: ["towns and cities"],
+        27: ["origins"],
+        28: ["oral"],
+        29: ["seminars"],
+        30: ["location"],
+        34: ["B"],
+        35: ["C"],
+        36: ["A"],
+        37: ["B"],
+        38: ["A"],
+        39: ["B"],
+        40: ["C"],
+        19: ["C"],
+        20: ["B"],
+        31: ["A"],
+        32: ["A"],
+        33: ["B"],
+      };
+
+      function normalize(v) {
+        return (v || "")
+          .toString()
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, " ")
+          .replace(/[.,]/g, "");
+      }
+
+      function getUserAnswer(q) {
+        const input = document.querySelector(`.ans-input[data-q="${q}"]`);
+        if (input) return input.value;
+        const select = document.querySelector(`select[data-q="${q}"]`);
+        if (select) return select.value;
+        const radio = document.querySelector(`input[name="q${q}"]:checked`);
+        if (radio) return radio.value;
+        return "";
+      }
+
+      function markResult(q, isCorrect, correctText, container) {
+        let mark = container.querySelector(".result-mark");
+        if (!mark) {
+          mark = document.createElement("span");
+          mark.className = "result-mark";
+          container.appendChild(mark);
+        }
+        mark.classList.add("show");
+        mark.classList.toggle("correct", isCorrect);
+        mark.classList.toggle("incorrect", !isCorrect);
+        mark.textContent = isCorrect ? "✓" : "✗";
+
+        let note = container.querySelector(".correct-answer-note");
+        if (!isCorrect) {
+          if (!note) {
+            note = document.createElement("span");
+            note.className = "correct-answer-note";
+            container.appendChild(note);
+          }
+          note.classList.add("show");
+          note.textContent = "→ " + correctText;
+        }
+      }
+
+      function checkAnswers() {
+        let correctCount = 0;
+        const total = Object.keys(answerKey).length;
+
+        for (const q in answerKey) {
+          const accepted = answerKey[q];
+          const userVal = getUserAnswer(q);
+          const isCorrect = accepted.some(
+            (a) => normalize(a) === normalize(userVal),
+          );
+          if (isCorrect) correctCount++;
+
+          let container =
+            document.querySelector(`.ans-input[data-q="${q}"]`)
+              ?.parentElement ||
+            document.querySelector(`select[data-q="${q}"]`)?.parentElement ||
+            document
+              .querySelector(`input[name="q${q}"]`)
+              ?.closest(".mcq")
+              ?.querySelector(".q-text");
+          if (container) markResult(q, isCorrect, accepted[0], container);
+        }
+
+        const banner = document.getElementById("scoreBanner");
+        banner.textContent = `Natija: ${correctCount} / ${total} to'g'ri javob`;
+        banner.classList.add("show");
+        banner.style.background =
+          correctCount >= total * 0.7
+            ? "#2e5c2e"
+            : correctCount >= total * 0.4
+              ? "#7a5a1e"
+              : "#7a1e1e";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function resetAll() {
+        document
+          .querySelectorAll(".ans-input")
+          .forEach((el) => (el.value = ""));
+        document.querySelectorAll("select").forEach((el) => (el.value = ""));
+        document
+          .querySelectorAll('input[type="radio"]')
+          .forEach((el) => (el.checked = false));
+        document
+          .querySelectorAll(".result-mark")
+          .forEach((el) => el.classList.remove("show", "correct", "incorrect"));
+        document
+          .querySelectorAll(".correct-answer-note")
+          .forEach((el) => el.classList.remove("show"));
+        document.getElementById("scoreBanner").classList.remove("show");
+      }
+
+      const audio = document.getElementById("mainAudio");
+      const timeDisplay = document.getElementById("timeDisplay");
+      function fmt(t) {
+        if (isNaN(t)) return "0:00";
+        const m = Math.floor(t / 60),
+          s = Math.floor(t % 60);
+        return m + ":" + (s < 10 ? "0" : "") + s;
+      }
+      audio.addEventListener("timeupdate", () => {
+        timeDisplay.textContent =
+          fmt(audio.currentTime) + " / " + fmt(audio.duration);
+      });
+      audio.addEventListener("loadedmetadata", () => {
+        timeDisplay.textContent =
+          fmt(audio.currentTime) + " / " + fmt(audio.duration);
+      });
+      function skip(sec) {
+        audio.currentTime = Math.max(
+          0,
+          Math.min(audio.duration || 0, audio.currentTime + sec),
+        );
+      }
+    </script>
+  </body>
+</html>
