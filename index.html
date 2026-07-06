@@ -546,7 +546,7 @@
       .score-banner {
         background: var(--card);
         border: 2px solid var(--navy);
-        padding: 20px 24px;
+        padding: 24px 28px;
         margin-bottom: 20px;
         text-align: center;
         display: none;
@@ -556,15 +556,76 @@
         animation: fadeIn 0.3s ease;
       }
       .score-banner .big {
-        font-size: 2.2rem;
-        font-weight: 700;
+        font-size: 2.6rem;
+        font-weight: 800;
         color: var(--navy);
         font-family: Arial, sans-serif;
+        margin-bottom: 8px;
+      }
+      .pct-row {
+        margin-bottom: 14px;
+      }
+      .pct-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--navy);
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 800;
+        font-family: Arial, sans-serif;
+      }
+      .score-detail {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+      .detail-item {
+        font-family: Arial, sans-serif;
+        font-size: 0.85rem;
+        background: #f5f1e6;
+        padding: 6px 14px;
+        border-radius: 4px;
+      }
+      .detail-item .detail-label {
+        color: var(--ink-soft);
+      }
+      .detail-item .detail-val {
+        font-weight: 700;
+        color: var(--navy);
+        margin-left: 4px;
+      }
+      .band-row {
+        font-family: Arial, sans-serif;
+        font-size: 1.1rem;
+        color: var(--ink-soft);
+        margin-bottom: 12px;
       }
       .score-banner .band {
         color: var(--stamp);
         font-weight: 700;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+      }
+      .bar-row {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .bar-track {
+        height: 12px;
+        background: #e0e0e0;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--ok), #3a9d5a);
+        border-radius: 6px;
+        transition: width 0.6s ease;
       }
 
       /* ===== FOOTER ACTIONS ===== */
@@ -710,9 +771,33 @@
 
     <main>
       <div class="score-banner" id="scoreBanner">
-        <div class="big"><span id="scoreNum">0</span> / 40</div>
-        <div>
+        <div class="big">
+          <span id="scoreNum">0</span> / <span id="scoreTotal">40</span>
+        </div>
+        <div class="pct-row">
+          <span class="pct-circle" id="pctCircle">0%</span>
+        </div>
+        <div class="score-detail">
+          <div class="detail-item">
+            <span class="detail-label">Text answers:</span>
+            <span class="detail-val" id="textScore">0</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Multiple choice:</span>
+            <span class="detail-val" id="mcScore">0</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Matching:</span>
+            <span class="detail-val" id="matchScore">0</span>
+          </div>
+        </div>
+        <div class="band-row" id="bandRow">
           Estimated IELTS Band: <span class="band" id="scoreBand">—</span>
+        </div>
+        <div class="bar-row">
+          <div class="bar-track">
+            <div class="bar-fill" id="barFill" style="width: 0%"></div>
+          </div>
         </div>
       </div>
 
@@ -1639,9 +1724,37 @@
             if (isCorrect) score++;
           });
 
+          // Calculate category scores
+          let textCorrect = 0,
+            mcCorrect = 0,
+            matchCorrect = 0;
+          Object.keys(textAnswers).forEach((q) => {
+            const el = document.getElementById("q" + q);
+            if (!el) return;
+            const val = normalize(el.value);
+            const accepted = textAnswers[q].map(normalize);
+            if (accepted.includes(val) && val.length > 0) textCorrect++;
+          });
+          Object.keys(mcAnswers).forEach((q) => {
+            const chosen = document.querySelector(
+              'input[name="q' + q + '"]:checked',
+            );
+            if (chosen && chosen.value === mcAnswers[q]) mcCorrect++;
+          });
+          Object.keys(selectAnswers).forEach((q) => {
+            const el = document.getElementById("q" + q);
+            if (el && el.value === selectAnswers[q]) matchCorrect++;
+          });
+
           // Show score
+          const pct = Math.round((score / 40) * 100);
           document.getElementById("scoreNum").textContent = score;
+          document.getElementById("pctCircle").textContent = pct + "%";
+          document.getElementById("textScore").textContent = textCorrect;
+          document.getElementById("mcScore").textContent = mcCorrect;
+          document.getElementById("matchScore").textContent = matchCorrect;
           document.getElementById("scoreBand").textContent = getBand(score);
+          document.getElementById("barFill").style.width = pct + "%";
           const banner = document.getElementById("scoreBanner");
           banner.classList.add("show");
           banner.scrollIntoView({ behavior: "smooth" });
